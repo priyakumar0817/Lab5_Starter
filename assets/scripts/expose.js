@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', init)
 function init() {
 
   console.log("hello");
- const hornParent = document.getElementById('horn-select');
+  const hornParent = document.getElementById('horn-select');
   const hornChildren = Array.from(hornParent);
   const airHorn = hornChildren[1];
   console.log(hornParent);
