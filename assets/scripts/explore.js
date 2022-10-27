@@ -1,18 +1,23 @@
-// explore.js
+// explore.js - Priya Senthilkumar
 
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   
+  //Retrieve our speech synthesis from current browser window
   const voiceSynth = window.speechSynthesis;
-  const options = document.querySelector('select');
 
+  //options select to map voices to drop down choices
+  const options = document.querySelector('select');
   const talkButton = document.querySelector('button');
+  //text to speak element used when retrieving voice
   const textToSpeak = document.getElementById('text-to-speak');
   const imgSmile = document.getElementById('explore').querySelector('img');
   const voiceParent = document.getElementById('voice-select');
+
+  //load voices
   const voiceChildren = Array.from(voiceParent);
-  var voices; 
+  let voices; 
   function voiceLoad () {
    
     voices = voiceSynth.getVoices();
@@ -25,11 +30,13 @@ function init() {
       
     }
   }
+  
     if (speechSynthesis.onvoiceschanged !== undefined) {
       speechSynthesis.onvoiceschanged = voiceLoad;
     }
 
 
+    //speak voices when user chooses the desired language
     talkButton.addEventListener('click',speakFunc);
     function speakFunc () {
       const utterPhrase = new SpeechSynthesisUtterance(textToSpeak.value);
@@ -45,10 +52,11 @@ function init() {
     }
     voiceSynth.speak(utterPhrase);
    
+    //allow smiley face to move
     imgSmile.src = '/assets/images/smiling-open.png';
-    //console.log(utterPhrase);
+    //make sure to stop the picture image from moving
     utterPhrase.addEventListener('end', (endVoice) => {
-      imgSmile.src = '/assets/images/smiling.png';
+    imgSmile.src = '/assets/images/smiling.png';
     })
 }
 

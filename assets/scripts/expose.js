@@ -1,20 +1,18 @@
-// expose.js
+// expose.js - Priya Senthilkumar
 window.addEventListener('DOMContentLoaded', init)
+
 function init() {
 
-  console.log("hello");
+  //horn options
   const hornParent = document.getElementById('horn-select');
-  const hornChildren = Array.from(hornParent);
-  const airHorn = hornChildren[1];
-  console.log(hornParent);
-  hornParent.addEventListener('click', printHornImg);
-
+  hornParent.addEventListener('change', printHornImg);
 
   const audioButton = document.querySelector('button');
   const volControl = document.querySelector("[type = 'range']");
   volControl.addEventListener('change',volCont);
   const aud  = document.querySelector('.hidden');
   
+  //volume slider changes
   function volCont (v) {
     aud.volume = v.target.value / 100;
     const volImg = document.getElementById("volume-controls").querySelector('img');
@@ -29,9 +27,11 @@ function init() {
       volImg.src = '/assets/icons/volume-level-3.svg';
     }
   }
+  //button to play sound
   audioButton.addEventListener('click',clickAudio);
-  console.log(audioButton);
+
   function clickAudio() {
+    //audio sounds change based on horn
     if (hornParent.value == 'air-horn') {
       aud.src = '/assets/audio/air-horn.mp3';
     }
@@ -50,16 +50,14 @@ function init() {
 
 
   function printHornImg() {
-
+    //change image based on the horn
+    const hornPic = document.getElementById("expose").querySelector('img');
     if (hornParent.value == 'air-horn') {
-      const airH = document.getElementById("expose").querySelector('img');
-      airH.src = '/assets/images/air-horn.svg';
+      hornPic.src = '/assets/images/air-horn.svg';
     } else if (hornParent.value == 'car-horn') {
-      const carH = document.getElementById("expose").querySelector('img');
-      carH.src = '/assets/images/car-horn.svg';
+      hornPic.src = '/assets/images/car-horn.svg';
     } else if (hornParent.value == 'party-horn') {
-      const airH = document.getElementById("expose").querySelector('img');
-      airH.src = '/assets/images/party-horn.svg';
+      hornPic.src = '/assets/images/party-horn.svg';
     }
   
   }
