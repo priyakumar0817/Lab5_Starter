@@ -53,10 +53,10 @@ function init() {
     voiceSynth.speak(utterPhrase);
    
     //allow smiley face to move
-    imgSmile.src = '/assets/images/smiling-open.png';
+    imgSmile.src = './assets/images/smiling-open.png';
     //make sure to stop the picture image from moving
     utterPhrase.addEventListener('end', (endVoice) => {
-    imgSmile.src = '/assets/images/smiling.png';
+    imgSmile.src = './assets/images/smiling.png';
     })
 }
 
