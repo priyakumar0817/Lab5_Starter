@@ -1,4 +1,4 @@
-// expose.js - Priya Senthilkumar
+// expose.js - Priya Senthilkumar CSE 110
 window.addEventListener('DOMContentLoaded', init)
 
 function init() {

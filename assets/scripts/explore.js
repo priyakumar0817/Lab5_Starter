@@ -1,4 +1,4 @@
-// explore.js - Priya Senthilkumar
+// explore.js - Priya Senthilkumar A17142735
 
 window.addEventListener('DOMContentLoaded', init);
 
